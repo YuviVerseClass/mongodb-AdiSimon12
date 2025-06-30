@@ -5,6 +5,7 @@ async function getTasks(req, res) {
     const tasks = await Task.find();
     res.json(tasks);
   } catch (err) {
+    console.error('getTasks error:', err); 
     res.status(500).json({ error: err.message });
   }
 }
@@ -17,6 +18,7 @@ async function addTask(req, res) {
     const savedTask = await newTask.save();
     res.status(201).json(savedTask);
   } catch (err) {
+    console.error('getTasks error:', err); 
     res.status(500).json({ error: err.message });
   }
 }
